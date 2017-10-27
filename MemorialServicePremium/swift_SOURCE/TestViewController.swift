@@ -37,6 +37,19 @@ class TestViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
 
     }
+    
+    @IBAction func pushOpenButton(_ sender: UIButton) {
+        let url = URL(string: "https://www.google.co.jp/")!
+        if UIApplication.shared.canOpenURL(url) {
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(url)
+            } else {
+                // Fallback on earlier versions
+                UIApplication.shared.openURL(url)
+            }
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
