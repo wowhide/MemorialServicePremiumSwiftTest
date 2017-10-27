@@ -50,6 +50,16 @@ class TestViewController: UIViewController {
         }
     }
     
+    @IBAction func pushTelButton(_ sender: Any) {
+        
+        let url = NSURL(string: "tel://09012345678")!
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url as URL)
+        } else {
+            UIApplication.shared.openURL(url as URL)
+        }
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
